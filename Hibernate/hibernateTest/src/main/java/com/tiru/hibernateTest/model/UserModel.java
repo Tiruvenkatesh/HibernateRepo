@@ -1,8 +1,12 @@
 package com.tiru.hibernateTest.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -21,7 +25,16 @@ public class UserModel {
 			)
 	private Address workaddress;
 	
+	@ElementCollection
+	private Set<Address2> AddressList = new HashSet<Address2>();
 	
+	
+	public Set<Address2> getAddressList() {
+		return AddressList;
+	}
+	public void setAddressList(Set<Address2> addressList) {
+		AddressList = addressList;
+	}
 	public String getUserName() {
 		return userName;
 	}
